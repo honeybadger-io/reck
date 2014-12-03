@@ -7,7 +7,7 @@ An exception-based web framework for Ruby.
 If you've ever programmed in Ruby on Rails, you know that it prefers convention
 over configuration. We believe this approach works well as a design paradigm but
 falls down over time (just ask anyone who has maintained a Rails application
-since version 1). In order to remain competitive against newer high-level (and
+since version 1). In order to remain competitive with newer high-level (and
 often concurrent) programming languages like Node and Elixir, Ruby needs a
 strong component-based framework which let's you use the *right* tool for the
 job.
