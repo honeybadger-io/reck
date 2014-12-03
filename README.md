@@ -20,7 +20,7 @@ view components may be used.
 ## Installation
 
 ```sh
-$ gem install cobra-framework
+$ gem install cobra
 ```
 
 ## Usage
@@ -70,7 +70,7 @@ end
 To run the application server:
 
 ```sh
-$ ruby -r cobra-framework application.rb
+$ ruby -r cobra application.rb
 ```
 
 ## Supported Response Types
