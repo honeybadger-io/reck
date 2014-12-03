@@ -43,3 +43,26 @@ describe Cobra::Application do
     end
   end
 end
+
+describe Cobra::Response do
+  let(:response) { described_class.new(message) }
+
+  describe "#head?" do
+    subject { response.head? }
+
+    context "when #message is blank" do
+      let(:message) { '' }
+      it { should eq true }
+    end
+
+    context "when #message is class name" do
+      let(:message) { 'Cobra::Response' }
+      it { should eq true }
+    end
+
+    context "when #message is something else" do
+      let(:message) { 'badgers!' }
+      it { should eq false }
+    end
+  end
+end
