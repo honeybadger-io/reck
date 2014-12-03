@@ -2,7 +2,12 @@ require 'forwardable'
 require 'rack'
 
 module Cobra
-  class Response < RuntimeError; end
+  class Response < RuntimeError
+    def message
+      super == self.class.name ? '' : super
+    end
+  end
+
   class Ok < Response; end
   class Created < Response; end
   class Forbidden < Response; end
