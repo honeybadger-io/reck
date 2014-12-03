@@ -70,17 +70,17 @@ end
 To run the application server:
 
 ```sh
-$ ruby application.rb
+$ ruby -r cobra-framework application.rb
 ```
 
 ## Supported Response Types
 
 | Exception Class        | Status code |
 | ---------------------- | ----------- |
-| Cobra::Ok        | 200         |
-| Cobra::Created   | 201         |
-| Cobra::Forbidden | 403         |
-| Cobra::NotFound  | 404         |
+| Cobra::Ok              | 200         |
+| Cobra::Created         | 201         |
+| Cobra::Forbidden       | 403         |
+| Cobra::NotFound        | 404         |
 
 ## TODO
 
