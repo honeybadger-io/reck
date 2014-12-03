@@ -66,3 +66,23 @@ describe Cobra::Response do
     end
   end
 end
+
+describe Cobra::Route do
+  let(:route) { described_class.new('/foo', controller) }
+  let(:controller) { double(call: true) }
+
+  subject { route }
+
+  describe "#path" do
+    subject { route.path }
+    it { should eq '/foo' }
+  end
+
+  describe "#call" do
+    it "calls the controller" do
+      response = double('Response')
+      expect(controller).to receive(:call).with(response)
+      route.call(response)
+    end
+  end
+end
