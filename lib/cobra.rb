@@ -21,10 +21,12 @@ module Cobra
       if route = routes.find {|r| r.path == req.path_info }
         route.call(req)
       else
-        [404, {}, ['Not found']]
+        [404, {}, ['Not Found']]
       end
     rescue Cobra::Response => e
       [STATUS[e.class], {}, [e.message]]
+    rescue => e
+      [500, {}, ['Internal Server Error']]
     end
 
     def self.routes
