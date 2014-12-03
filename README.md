@@ -20,7 +20,7 @@ view components may be used.
 ## Installation
 
 ```sh
-gem install honeybadger-framework
+$ gem install honeybadger-framework
 ```
 
 ## Usage
@@ -34,6 +34,7 @@ great for controlling the flow of your application.
 Routing code to a controller is as simple as:
 
 ```ruby
+require 'honeybadger-framework'
 Honeybadger.route '/' do |request|
   raise Honeybadger::Ok, 'Hello World'
 end
@@ -42,6 +43,7 @@ end
 Want to add authentication? No problem. (Actually, with a single-page app, this *really is* all you need!)
 
 ```ruby
+require 'honeybadger-framework'
 Honeybadger.route '/admin' do |request|
   raise Honeybadger::Forbidden unless request.params['username'] == 'admin'
   raise Honeybadger::Forbidden unless request.params['password'] == 'secret'
@@ -53,6 +55,7 @@ Since the message of each exception is actually a template, use ERB tags to
 interpolate Ruby values in your views:
 
 ```ruby
+require 'honeybadger-framework'
 Honeybadger.route '/version' do |request|
   raise Honeybadger::Ok, 'Honeybadger version: <%= Honeybadger::VERSION %>'
 end
@@ -62,9 +65,16 @@ Since Honeybadger depends on Rack, you also have access to helper methods
 derived from the keys in Rack's env hash:
 
 ```ruby
+require 'honeybadger-framework'
 Honeybadger.route '/method' do |request|
   raise Honeybadger::Ok, 'Requested via: <%= request_method %>'
 end
+```
+
+To run the application server:
+
+```sh
+$ ruby application.rb
 ```
 
 ## Supported Response Types
