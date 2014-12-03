@@ -11,7 +11,7 @@ module Cobra
   STATUS = {
     Ok => 200,
     Created => 201,
-    Forwardable => 403,
+    Forbidden => 403,
     NotFound => 404
   }.freeze
 
