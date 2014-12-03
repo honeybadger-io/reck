@@ -1,5 +1,7 @@
 require_relative 'cobra/application'
 
-at_exit do
-  Rack::Handler::WEBrick.run Cobra::Application
+module Cobra
+  at_exit do
+    Rack::Handler::WEBrick.run Cobra::Application
+  end
 end
