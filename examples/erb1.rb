@@ -1,4 +1,4 @@
-require_relative '../lib/cobra'
+require 'cobra'
 
 Cobra.route '/version' do |request|
   raise Cobra::Ok, 'Cobra version: <%= Cobra::VERSION %>'

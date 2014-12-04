@@ -1,4 +1,4 @@
-require_relative '../lib/cobra'
+require 'cobra'
 
 Cobra.route '/admin' do |request|
   raise Cobra::Forbidden unless request.params['username'] == 'admin'

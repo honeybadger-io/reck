@@ -10,7 +10,7 @@ require 'pygments'
 require 'gemoji'
 require 'tilt'
 
-require_relative 'lib/cobra/application'
+require 'cobra/application'
 
 layout = File.expand_path('../layout.erb', __FILE__)
 readme = File.expand_path('../README.md', __FILE__)

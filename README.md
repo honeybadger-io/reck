@@ -99,6 +99,6 @@ $ ruby -r cobra application.rb
 ## License
 
 Cobra is Copyright 2015 © Honeybadger Industries LLC. It is free software, and
-may be redistributed under the terms specified in the MIT-LICENSE file.
+may be redistributed under the terms specified in the LICENSE file.
 
 Brought to you by :zap: **Honeybadger.io**, painless [Rails exception tracking](https://www.honeybadger.io/).

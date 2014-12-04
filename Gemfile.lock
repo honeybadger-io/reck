@@ -1,3 +1,9 @@
+PATH
+  remote: .
+  specs:
+    cobra (0.0.1)
+      rack
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -56,12 +62,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  cobra!
   gemoji
   github-linguist
   github-markdown
   html-pipeline
   pygments.rb
-  rack
   rake
   rspec
   tilt

@@ -2,7 +2,7 @@ require 'rack'
 require 'forwardable'
 require 'erb'
 
-require_relative 'version'
+require 'cobra/version'
 
 module Cobra
   class Response < RuntimeError

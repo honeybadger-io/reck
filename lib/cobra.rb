@@ -1,4 +1,4 @@
-require_relative 'cobra/application'
+require 'cobra/application'
 
 module Cobra
   at_exit do
