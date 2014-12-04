@@ -41,6 +41,7 @@ module Cobra
     rescue Cobra::Response => e
       [STATUS[e.class], {}, [e.head? ? nil : e.render].compact]
     rescue => e
+      env['rack.exception'] = e
       [500, {}, ['Internal Server Error']]
     end
 

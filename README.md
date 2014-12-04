@@ -75,12 +75,75 @@ $ ruby -r cobra application.rb
 
 ## Supported Responses
 
+Each response inherits from the exception `Cobra::Response`.
+
 | Exception Class        | Status code |
 | ---------------------- | ----------- |
 | Cobra::Ok              | 200         |
 | Cobra::Created         | 201         |
 | Cobra::Forbidden       | 403         |
 | Cobra::NotFound        | 404         |
+
+## Handling exceptions
+
+While responses should always be raised, you may wish to handle other types of
+unexpected exceptions, or "exceptional exceptions", if you will. In these cases,
+we recommend using Honeybadger. Honeybadger provides middleware (and a bunch of
+other cool features) to catch exceptions in Ruby applications -- whether you're
+using Cobra, Rails, Sinatra, Rack, or rolling your own Ruby web-framework.
+
+There are two ways you can get Honeybadger to monitor Cobra:
+
+1. Reporting errors inside a controller
+
+  ```ruby
+  require 'cobra'
+
+  Honeybadger.configure do |config|
+    config.api_key = 'your_api_key'
+  end
+
+  Cobra.route '/oops' do |request|
+    begin
+      raise 'oops!'
+    rescue Cobra::Response
+      raise # Raise the response to the router
+    rescue => e
+      # Exceptional Cobra exception: report it with Honeybadger!
+      Honeybadger.notify(e)
+    end
+  end
+  ```
+
+  ```sh
+  ruby application.rb
+  ```
+
+2. Automatically catching all errors which aren't responses
+
+  ```ruby
+  require 'cobra/application'
+
+  Honeybadger.configure do |config|
+    config.api_key = 'your_api_key'
+    config.ignore << Cobra::Response
+  end
+
+  Cobra.route '/oops' do |request|
+    fail 'oops!'
+  end
+
+  use Honeybadger::Rack::ErrorNotifier
+
+  run Cobra::Application
+  ```
+
+  ```sh
+  rackup application.rb
+  ```
+
+Don't forget to replace `'your_api_key'` with the API key from your [project
+settings page](https://www.honeybadger.io/) on Honeybadger.
 
 ## TODO
 

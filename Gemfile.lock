@@ -23,6 +23,8 @@ GEM
       mime-types (>= 1.19)
       rugged (~> 0.22.0b4)
     github-markdown (0.6.7)
+    honeybadger (1.16.5)
+      json
     html-pipeline (1.11.0)
       activesupport (>= 2)
       nokogiri (~> 1.4)
@@ -66,6 +68,7 @@ DEPENDENCIES
   gemoji
   github-linguist
   github-markdown
+  honeybadger
   html-pipeline
   pygments.rb
   rake
