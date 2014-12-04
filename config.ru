@@ -47,4 +47,6 @@ end
 
 use Honeybadger::Rack::ErrorNotifier
 
+use Rack::Static, :urls => ['/stylesheets', '/javascripts', '/fonts', '/images'], :root => 'public'
+
 run Cobra::Application
