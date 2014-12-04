@@ -10,5 +10,6 @@ gem 'gemoji', require: false
 gem 'tilt', require: false
 
 group :development, :test do
+  gem 'rake'
   gem 'rspec'
 end
