@@ -35,6 +35,7 @@ module Cobra
       req = Rack::Request.new(env)
       if route = routes.find {|r| r.path.chomp('/') == req.path_info.chomp('/') }
         route.call(req)
+        fail 'invalid response'
       else
         [404, {}, ['Not Found']]
       end

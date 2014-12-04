@@ -98,6 +98,7 @@ There are two ways you can get Honeybadger to monitor Cobra:
 
   ```ruby
   require 'cobra'
+  require 'honeybadger'
 
   Honeybadger.configure do |config|
     config.api_key = 'your_api_key'
@@ -105,7 +106,7 @@ There are two ways you can get Honeybadger to monitor Cobra:
 
   Cobra.route '/oops' do |request|
     begin
-      raise 'oops!'
+      fail 'oops!'
     rescue Cobra::Response
       raise # Raise the response to the router
     rescue => e
@@ -123,6 +124,7 @@ There are two ways you can get Honeybadger to monitor Cobra:
 
   ```ruby
   require 'cobra/application'
+  require 'honeybadger'
 
   Honeybadger.configure do |config|
     config.api_key = 'your_api_key'
@@ -139,7 +141,7 @@ There are two ways you can get Honeybadger to monitor Cobra:
   ```
 
   ```sh
-  rackup application.rb
+  rackup application.ru
   ```
 
 Don't forget to replace `'your_api_key'` with the API key from your [project
