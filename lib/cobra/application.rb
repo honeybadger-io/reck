@@ -39,7 +39,7 @@ module Cobra
         [404, {}, ['Not Found']]
       end
     rescue Cobra::Response => e
-      [STATUS[e.class], {}, [e.head? ? nil : e.message].compact]
+      [STATUS[e.class], {}, [e.head? ? nil : e.render].compact]
     rescue => e
       [500, {}, ['Internal Server Error']]
     end
