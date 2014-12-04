@@ -73,7 +73,7 @@ To run the application server:
 $ ruby -r cobra application.rb
 ```
 
-## Supported Response Types
+## Supported Responses
 
 | Exception Class        | Status code |
 | ---------------------- | ----------- |
