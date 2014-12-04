@@ -94,7 +94,7 @@ $ ruby -r cobra application.rb
 2. Create a topic branch `git checkout -b my_branch`
 3. Commit your changes `git commit -am "Boom"`
 3. Push to your branch `git push origin my_branch`
-4. Send a [pull request](https://github.com/honeybadger-io/honeybadger-framework/pulls)
+4. Send a [pull request](https://github.com/honeybadger-io/cobra/pulls)
 
 ## License
 
