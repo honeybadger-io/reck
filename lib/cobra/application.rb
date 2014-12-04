@@ -1,6 +1,8 @@
 require 'rack'
 require 'forwardable'
 
+require_relative 'version'
+
 module Cobra
   class Response < RuntimeError
     NOT_BLANK = Regexp.new('\S').freeze
