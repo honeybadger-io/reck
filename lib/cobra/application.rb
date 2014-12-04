@@ -33,7 +33,7 @@ module Cobra
   class Application
     def self.call(env)
       req = Rack::Request.new(env)
-      if route = routes.find {|r| r.path == req.path_info }
+      if route = routes.find {|r| r.path.chomp('/') == req.path_info.chomp('/') }
         route.call(req)
       else
         [404, {}, ['Not Found']]
