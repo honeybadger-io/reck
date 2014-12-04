@@ -65,6 +65,16 @@ describe Cobra::Response do
       it { should eq false }
     end
   end
+
+  describe "#render" do
+    let(:message) { 'Version: <%= Cobra::VERSION %>' }
+
+    subject { response.render }
+
+    it "renders message as ERB" do
+      should eq "Version: #{Cobra::VERSION}"
+    end
+  end
 end
 
 describe Cobra::Route do

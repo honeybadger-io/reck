@@ -1,5 +1,6 @@
 require 'rack'
 require 'forwardable'
+require 'erb'
 
 require_relative 'version'
 
@@ -9,6 +10,11 @@ module Cobra
 
     def head?
       message == self.class.name || message !~ NOT_BLANK
+    end
+
+    def render
+      erb = ERB.new(message)
+      erb.result
     end
   end
 
