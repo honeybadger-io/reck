@@ -112,6 +112,8 @@ Reck.route '/oops' do |request|
 end
 ```
 
+Run the server:
+
 ```
 $ ruby application.rb
 ```
