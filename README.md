@@ -3,10 +3,9 @@
 An exception-based web framework for Ruby.
 
 ---
-Brought to you by :zap: **Honeybadger.io**: Zero-instrumentation, 360
-degree coverage of errors, outages and service degradation. [Start
-exterminating errors in your Ruby apps
-today](https://www.honeybadger.io/)!
+Brought to you by :zap: **Honeybadger.io** :zap:--Zero-instrumentation, 360
+degree coverage of errors, outages and service degradation. [Deploy with
+confidence and be your team's devops hero.](https://www.honeybadger.io/)!
 
 # Why another framework?
 
