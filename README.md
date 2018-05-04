@@ -89,7 +89,7 @@ Each response inherits from the exception `Reck::Response`.
 | Reck::Forbidden       | 403         |
 | Reck::NotFound        | 404         |
 
-## Handling exceptions
+## Handling Exceptions
 
 While responses should always be raised, you may wish to handle other types of
 unexpected exceptions, or "exceptional exceptions". In these cases, use
