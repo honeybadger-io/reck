@@ -1,3 +1,6 @@
+
+:snake: "rack is to reck as snake is to snek" :snake:
+
 # Reck
 
 An exception-based web framework for Ruby.
