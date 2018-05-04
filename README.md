@@ -3,6 +3,7 @@
 An exception-based web framework for Ruby.
 
 [![Build Status](https://travis-ci.org/honeybadger-io/reck.svg?branch=master)](https://travis-ci.org/honeybadger-io/reck)
+[![Gem Version](https://badge.fury.io/rb/reck.svg)](https://badge.fury.io/rb/reck)
 
 ---
 :zap: Brought to you by **Honeybadger.io**: Zero-instrumentation, 360 degree
