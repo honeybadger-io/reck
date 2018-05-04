@@ -3,14 +3,17 @@
 An exception-based web framework for Ruby.
 
 ---
-Brought to you by :zap: **Honeybadger.io**: Zero-instrumentation, 360 degree coverage of errors, outages and service degradation. [Start exterminating errors in your Ruby apps today](https://www.honeybadger.io/)!
+Brought to you by :zap: **Honeybadger.io**: Zero-instrumentation, 360
+degree coverage of errors, outages and service degradation. [Start
+exterminating errors in your Ruby apps
+today](https://www.honeybadger.io/)!
 
 # Why another framework?
 
 Reck is very light-weight compared to other web frameworks such as Rails
 and Sinatra. We handle the routing layer using a very simple
-exception-based DSL and then get out of the way so that you can use your preferred
-model, view, and controller components.
+exception-based DSL and then get out of the way so that you can use your
+preferred model, view, and controller components.
 
 ## Installation
 
@@ -21,10 +24,10 @@ $ gem install reck
 ## Usage
 
 To respond to the defined route with rendered content, simply raise an
-exception. The message of the exception will be evaluated as ERB before being
-added to the response. If the exception is raised without a message, a
-no-content response will be sent. This exception-based DSL is great for controlling
-the flow of your application.
+exception. The message of the exception will be evaluated as ERB before
+being added to the response. If the exception is raised without a message,
+a no-content response will be sent. This exception-based DSL is great for
+controlling the flow of your application.
 
 Routing is as simple as:
 
@@ -81,21 +84,24 @@ Each response inherits from the exception `Reck::Response`.
 
 ## Handling exceptions
 
-While responses should always be raised, you may wish to handle other types of
-unexpected exceptions, or "exceptional exceptions". In these cases,
-use [Honeybadger](https://www.honeybadger.io/). Honeybadger provides middleware (and a bunch of
-other cool features) to monitor Ruby applications -- whether you're
-using Reck, Rails, Sinatra, Rack, or rolling your own Ruby web-framework.
+While responses should always be raised, you may wish to handle other
+types of unexpected exceptions, or "exceptional exceptions". In these
+cases, use [Honeybadger](https://www.honeybadger.io/). Honeybadger
+provides middleware (and a bunch of other cool features) to monitor Ruby
+applications -- whether you're using Reck, Rails, Sinatra, Rack, or
+rolling your own Ruby web-framework.
 
 To monitor Reck for exceptions:
 
 ```ruby
+# application.ru
 require 'reck/application'
 require 'honeybadger'
 
 Honeybadger.configure do |config|
   config.api_key = 'your_api_key'
-  config.exceptions.ignore << Reck::Response
+  config.env = 'production'
+  config.exceptions.ignore = [Reck::Response]
 end
 
 Reck.route '/oops' do |request|
@@ -112,7 +118,7 @@ rackup application.ru
 ```
 
 Don't forget to replace `'your_api_key'` with the API key from your [project
-settings page](https://www.honeybadger.io/) on Honeybadger.
+settings page](https://www.honeybadger.io/) in Honeybadger.
 
 ## TODO
 

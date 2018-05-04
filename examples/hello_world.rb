@@ -1,5 +1,5 @@
-require 'cobra'
+require 'reck'
 
-Cobra.route '/' do |request|
-  raise Cobra::Ok, 'Hello World'
+Reck.route '/' do |request|
+  raise Reck::Ok, 'Hello World'
 end

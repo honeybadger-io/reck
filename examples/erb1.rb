@@ -1,5 +1,5 @@
-require 'cobra'
+require 'reck'
 
-Cobra.route '/version' do |request|
-  raise Cobra::Ok, 'Cobra version: <%= Cobra::VERSION %>'
+Reck.route '/version' do |request|
+  raise Reck::Ok, 'Reck version: <%= Reck::VERSION %>'
 end
