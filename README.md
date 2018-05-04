@@ -3,9 +3,11 @@
 An exception-based web framework for Ruby.
 
 ---
-:zap: Brought to you by **Honeybadger.io**: Zero-instrumentation, 360
-degree coverage of errors, outages and service degradation. [Deploy with
-confidence and be your team's devops hero!](https://www.honeybadger.io/) :zap:
+:zap: Brought to you by **Honeybadger.io**: Zero-instrumentation, 360 degree
+coverage of errors, outages and service degradation. [Deploy with confidence and
+be your team's devops
+hero!](https://www.honeybadger.io/?utm_source=github&utm_medium=readme&utm_campaign=reck)
+:zap:
 
 # Why another framework?
 
@@ -83,12 +85,12 @@ Each response inherits from the exception `Reck::Response`.
 
 ## Handling exceptions
 
-While responses should always be raised, you may wish to handle other
-types of unexpected exceptions, or "exceptional exceptions". In these
-cases, use [Honeybadger](https://www.honeybadger.io/). Honeybadger
-provides middleware (and a bunch of other cool features) to monitor Ruby
-applications -- whether you're using Reck, Rails, Sinatra, Rack, or
-rolling your own Ruby web-framework.
+While responses should always be raised, you may wish to handle other types of
+unexpected exceptions, or "exceptional exceptions". In these cases, use
+[Honeybadger](https://www.honeybadger.io/?utm_source=github&utm_medium=readme&utm_campaign=reck).
+Honeybadger provides middleware (and a bunch of other cool features) to monitor
+Ruby applications -- whether you're using Reck, Rails, Sinatra, Rack, or rolling
+your own Ruby web-framework.
 
 To monitor Reck for exceptions:
 
@@ -117,7 +119,9 @@ rackup application.ru
 ```
 
 Don't forget to replace `'your_api_key'` with the API key from your [project
-settings page](https://www.honeybadger.io/) in Honeybadger.
+settings
+page](https://www.honeybadger.io/?utm_source=github&utm_medium=readme&utm_campaign=reck)
+in Honeybadger.
 
 ## TODO
 
