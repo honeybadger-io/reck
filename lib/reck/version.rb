@@ -1,3 +1,3 @@
-module Cobra
+module Reck
   VERSION = '0.0.1'.freeze
 end

@@ -1,31 +1,31 @@
-require 'cobra/application'
+require 'reck/application'
 
-describe Cobra::Application do
+describe Reck::Application do
   let(:env) { ::Rack::MockRequest.env_for("http://www.example.com#{path}", 'REMOTE_ADDR' => '127.0.0.1') }
   let(:path) { '/' }
 
   before do
-    Cobra::Application.routes.clear
+    Reck::Application.routes.clear
   end
 
   context "when path is found in routes" do
     it "responds with Ok response" do
-      Cobra.route('/') { raise Cobra::Ok, 'Hello World' }
+      Reck.route('/') { raise Reck::Ok, 'Hello World' }
       expect(described_class.call(env)).to eq [200, {}, ['Hello World']]
     end
 
     it "responds with Created response" do
-      Cobra.route('/') { raise Cobra::Created }
+      Reck.route('/') { raise Reck::Created }
       expect(described_class.call(env)).to eq [201, {}, []]
     end
 
     it "responds with Forbidden response" do
-      Cobra.route('/') { raise Cobra::Forbidden }
+      Reck.route('/') { raise Reck::Forbidden }
       expect(described_class.call(env)).to eq [403, {}, []]
     end
 
     it "responds with NotFound response" do
-      Cobra.route('/') { raise Cobra::NotFound }
+      Reck.route('/') { raise Reck::NotFound }
       expect(described_class.call(env)).to eq [404, {}, []]
     end
   end
@@ -38,13 +38,13 @@ describe Cobra::Application do
 
   context "when non-response-related exception happens" do
     it "responds with 500" do
-      Cobra.route('/') { raise RuntimeError, 'oops!' }
+      Reck.route('/') { raise RuntimeError, 'oops!' }
       expect(described_class.call(env)).to eq [500, {}, ['Internal Server Error']]
     end
   end
 end
 
-describe Cobra::Response do
+describe Reck::Response do
   let(:response) { described_class.new(message) }
 
   describe "#head?" do
@@ -56,7 +56,7 @@ describe Cobra::Response do
     end
 
     context "when #message is class name" do
-      let(:message) { 'Cobra::Response' }
+      let(:message) { 'Reck::Response' }
       it { should eq true }
     end
 
@@ -67,17 +67,17 @@ describe Cobra::Response do
   end
 
   describe "#render" do
-    let(:message) { 'Version: <%= Cobra::VERSION %>' }
+    let(:message) { 'Version: <%= Reck::VERSION %>' }
 
     subject { response.render }
 
     it "renders message as ERB" do
-      should eq "Version: #{Cobra::VERSION}"
+      should eq "Version: #{Reck::VERSION}"
     end
   end
 end
 
-describe Cobra::Route do
+describe Reck::Route do
   let(:route) { described_class.new('/foo', controller) }
   let(:controller) { double(call: true) }
 

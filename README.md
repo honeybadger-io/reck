@@ -1,4 +1,4 @@
-# Cobra
+# Reck
 
 An exception-based web framework for Ruby.
 
@@ -12,7 +12,7 @@ often concurrent) programming languages like Node and Elixir, Ruby needs a
 strong component-based framework which let's you use the *right* tool for the
 job.
 
-Cobra is very light-weight compared to other web frameworks such as Rails
+Reck is very light-weight compared to other web frameworks such as Rails
 or even Sinatra. We handle the routing and controller layer using a very simple
 exception-based DSL and then get out of the way so that any existing model or
 view components may be used.
@@ -20,7 +20,7 @@ view components may be used.
 ## Installation
 
 ```sh
-$ gem install cobra
+$ gem install reck
 ```
 
 ## Usage
@@ -34,18 +34,18 @@ great for controlling the flow of your application.
 Routing code to a controller is as simple as:
 
 ```ruby
-Cobra.route '/' do |request|
-  raise Cobra::Ok, 'Hello World'
+Reck.route '/' do |request|
+  raise Reck::Ok, 'Hello World'
 end
 ```
 
 Want to add authentication? No problem. (Actually, with a single-page app, this *really is* all you need!)
 
 ```ruby
-Cobra.route '/admin' do |request|
-  raise Cobra::Forbidden unless request.params['username'] == 'admin'
-  raise Cobra::Forbidden unless request.params['password'] == 'secret'
-  raise Cobra::Ok, 'Super secret admin page'
+Reck.route '/admin' do |request|
+  raise Reck::Forbidden unless request.params['username'] == 'admin'
+  raise Reck::Forbidden unless request.params['password'] == 'secret'
+  raise Reck::Ok, 'Super secret admin page'
 end
 ```
 
@@ -53,36 +53,36 @@ Since the message of each exception is actually a template, use ERB tags to
 interpolate Ruby values in your views:
 
 ```ruby
-Cobra.route '/version' do |request|
-  raise Cobra::Ok, 'Cobra version: <%= Cobra::VERSION %>'
+Reck.route '/version' do |request|
+  raise Reck::Ok, 'Reck version: <%= Reck::VERSION %>'
 end
 ```
 
-Since Cobra depends on Rack, you also have access to helper methods
+Since Reck depends on Rack, you also have access to helper methods
 derived from the keys in Rack's env hash:
 
 ```ruby
-Cobra.route '/method' do |request|
-  raise Cobra::Ok, 'Requested via: <%= request_method %>'
+Reck.route '/method' do |request|
+  raise Reck::Ok, 'Requested via: <%= request_method %>'
 end
 ```
 
 To run the application server:
 
 ```sh
-$ ruby -r cobra application.rb
+$ ruby -r reck application.rb
 ```
 
 ## Supported Responses
 
-Each response inherits from the exception `Cobra::Response`.
+Each response inherits from the exception `Reck::Response`.
 
-| Exception Class        | Status code |
-| ---------------------- | ----------- |
-| Cobra::Ok              | 200         |
-| Cobra::Created         | 201         |
-| Cobra::Forbidden       | 403         |
-| Cobra::NotFound        | 404         |
+| Exception Class       | Status code |
+| --------------------- | ----------- |
+| Reck::Ok              | 200         |
+| Reck::Created         | 201         |
+| Reck::Forbidden       | 403         |
+| Reck::NotFound        | 404         |
 
 ## Handling exceptions
 
@@ -90,27 +90,27 @@ While responses should always be raised, you may wish to handle other types of
 unexpected exceptions, or "exceptional exceptions", if you will. In these cases,
 we recommend using Honeybadger. Honeybadger provides middleware (and a bunch of
 other cool features) to catch exceptions in Ruby applications -- whether you're
-using Cobra, Rails, Sinatra, Rack, or rolling your own Ruby web-framework.
+using Reck, Rails, Sinatra, Rack, or rolling your own Ruby web-framework.
 
-There are two ways you can get Honeybadger to monitor Cobra:
+There are two ways you can get Honeybadger to monitor Reck:
 
 1. Reporting errors inside a controller
 
   ```ruby
-  require 'cobra'
+  require 'reck'
   require 'honeybadger'
 
   Honeybadger.configure do |config|
     config.api_key = 'your_api_key'
   end
 
-  Cobra.route '/oops' do |request|
+  Reck.route '/oops' do |request|
     begin
       fail 'oops!'
-    rescue Cobra::Response
+    rescue Reck::Response
       raise # Raise the response to the router
     rescue => e
-      # Exceptional Cobra exception: report it with Honeybadger!
+      # Exceptional Reck exception: report it with Honeybadger!
       Honeybadger.notify(e)
     end
   end
@@ -123,21 +123,21 @@ There are two ways you can get Honeybadger to monitor Cobra:
 2. Automatically catching all errors which aren't responses
 
   ```ruby
-  require 'cobra/application'
+  require 'reck/application'
   require 'honeybadger'
 
   Honeybadger.configure do |config|
     config.api_key = 'your_api_key'
-    config.ignore << Cobra::Response
+    config.ignore << Reck::Response
   end
 
-  Cobra.route '/oops' do |request|
+  Reck.route '/oops' do |request|
     fail 'oops!'
   end
 
   use Honeybadger::Rack::ErrorNotifier
 
-  run Cobra::Application
+  run Reck::Application
   ```
 
   ```sh
@@ -159,11 +159,11 @@ settings page](https://www.honeybadger.io/) on Honeybadger.
 2. Create a topic branch `git checkout -b my_branch`
 3. Commit your changes `git commit -am "Boom"`
 3. Push to your branch `git push origin my_branch`
-4. Send a [pull request](https://github.com/honeybadger-io/cobra/pulls)
+4. Send a [pull request](https://github.com/honeybadger-io/reck/pulls)
 
 ## License
 
-Cobra is Copyright 2015 © Honeybadger Industries LLC. It is free software, and
+Reck is Copyright 2015 © Honeybadger Industries LLC. It is free software, and
 may be redistributed under the terms specified in the LICENSE file.
 
 Brought to you by :zap: **Honeybadger.io**: our kick-ass exception tracking is no joke. :trollface:

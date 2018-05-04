@@ -2,9 +2,9 @@ require 'rack'
 require 'forwardable'
 require 'erb'
 
-require 'cobra/version'
+require 'reck/version'
 
-module Cobra
+module Reck
   class Response < RuntimeError
     NOT_BLANK = Regexp.new('\S').freeze
 
@@ -39,7 +39,7 @@ module Cobra
       else
         [404, {}, ['Not Found']]
       end
-    rescue Cobra::Response => e
+    rescue Reck::Response => e
       [STATUS[e.class], {}, [e.head? ? nil : e.render].compact]
     rescue => e
       env['rack.exception'] = e

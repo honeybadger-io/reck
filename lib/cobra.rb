@@ -1,7 +1,7 @@
-require 'cobra/application'
+require 'reck/application'
 
-module Cobra
+module Reck
   at_exit do
-    Rack::Handler::WEBrick.run Cobra::Application
+    Rack::Handler::WEBrick.run Reck::Application
   end
 end

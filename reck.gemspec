@@ -1,13 +1,13 @@
-require File.expand_path('../lib/cobra/version.rb', __FILE__)
+require File.expand_path('../lib/reck/version.rb', __FILE__)
 
 Gem::Specification.new do |s|
-  s.name        = 'cobra'
-  s.version     = Cobra::VERSION
+  s.name        = 'reck'
+  s.version     = Reck::VERSION
   s.platform    = Gem::Platform::RUBY
   s.summary     = 'An exception-based web framework for Ruby.'
   s.authors     = ['Honeybadger Industries LLC']
   s.email       = ['support@honeybadger.io']
-  s.homepage    = 'https://github.com/honeybadger-io/cobra'
+  s.homepage    = 'https://github.com/honeybadger-io/reck'
   s.license     = 'MIT'
 
   s.required_ruby_version = '>= 2.1.0'
