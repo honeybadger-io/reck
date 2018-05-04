@@ -96,8 +96,8 @@ To monitor Reck for exceptions:
 
 ```ruby
 # application.rb
-require 'reck'
 require 'honeybadger'
+require 'reck'
 
 Honeybadger.configure do |config|
   config.api_key = 'your_api_key'

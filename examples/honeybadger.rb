@@ -1,4 +1,3 @@
-require 'rack'
 require 'honeybadger'
 require 'reck'
 
