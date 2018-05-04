@@ -27,8 +27,10 @@ pipeline = HTML::Pipeline.new [
   HTML::Pipeline::SyntaxHighlightFilter,
   HTML::Pipeline::EmojiFilter
 ], {
-  asset_root: 'https://assets-cdn.github.com/images/icons'
+  asset_root: 'https://assets-cdn.github.com/images/icons',
+  gfm: false
 }
+
 body = Tilt.new(layout).render { pipeline.call(File.read(readme))[:output].to_s }
 
 Reck.route '/version' do |request|
