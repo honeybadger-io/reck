@@ -83,7 +83,7 @@ Each response inherits from the exception `Reck::Response`.
 
 While responses should always be raised, you may wish to handle other types of
 unexpected exceptions, or "exceptional exceptions". In these cases,
-use Honeybadger. Honeybadger provides middleware (and a bunch of
+use [Honeybadger](https://www.honeybadger.io/). Honeybadger provides middleware (and a bunch of
 other cool features) to monitor Ruby applications -- whether you're
 using Reck, Rails, Sinatra, Rack, or rolling your own Ruby web-framework.
 
