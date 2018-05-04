@@ -128,7 +128,7 @@ There are two ways you can get Honeybadger to monitor Reck:
 
   Honeybadger.configure do |config|
     config.api_key = 'your_api_key'
-    config.ignore << Reck::Response
+    config.exceptions.ignore << Reck::Response
   end
 
   Reck.route '/oops' do |request|
