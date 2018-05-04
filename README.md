@@ -2,6 +2,9 @@
 
 An exception-based web framework for Ruby.
 
+---
+Brought to you by :zap: **Honeybadger.io**: Zero-instrumentation, 360 degree coverage of errors, outages and service degradation. [Start exterminating errors in your Ruby apps today](https://www.honeybadger.io/)!
+
 # Why another framework?
 
 Reck is very light-weight compared to other web frameworks such as Rails
@@ -129,5 +132,3 @@ settings page](https://www.honeybadger.io/) on Honeybadger.
 
 Reck is Copyright 2018 © Honeybadger Industries LLC. It is free software, and
 may be redistributed under the terms specified in the LICENSE file.
-
-Brought to you by :zap: **Honeybadger.io**: Zero-instrumentation, 360 degree coverage of errors, outages and service degradation. [Start exterminating errors in your Ruby apps today](https://www.honeybadger.io/)!
