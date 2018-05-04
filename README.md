@@ -3,7 +3,7 @@
 
 # Reck
 
-An exception-based web framework for Ruby.
+The exception-powered Ruby web framework!
 
 [![Build Status](https://travis-ci.org/honeybadger-io/reck.svg?branch=master)](https://travis-ci.org/honeybadger-io/reck)
 [![Gem Version](https://badge.fury.io/rb/reck.svg)](https://badge.fury.io/rb/reck)
