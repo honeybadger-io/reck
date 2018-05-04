@@ -114,7 +114,7 @@ end
 
 Run the server:
 
-```
+```sh
 $ ruby application.rb
 ```
 
