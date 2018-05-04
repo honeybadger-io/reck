@@ -95,27 +95,25 @@ your own Ruby web-framework.
 To monitor Reck for exceptions:
 
 ```ruby
-# application.ru
-require 'reck/application'
+# application.rb
+require 'reck'
 require 'honeybadger'
 
 Honeybadger.configure do |config|
   config.api_key = 'your_api_key'
-  config.env = 'production'
+  config.report_data = true
   config.exceptions.ignore = [Reck::Response]
-end
-
-Reck.route '/oops' do |request|
-  fail 'oops!'
 end
 
 use Honeybadger::Rack::ErrorNotifier
 
-run Reck::Application
+Reck.route '/oops' do |request|
+  fail 'oops!'
+end
 ```
 
-```sh
-rackup application.ru
+```
+$ ruby application.rb
 ```
 
 Don't forget to replace `'your_api_key'` with the API key from your [project

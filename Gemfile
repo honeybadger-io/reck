@@ -9,6 +9,8 @@ gem 'pygments.rb', require: false
 gem 'html-pipeline', require: false
 gem 'gemoji', require: false
 gem 'tilt', require: false
+gem 'commonmarker', require: false
+gem 'rouge', require: false
 gem 'honeybadger', require: false
 
 group :development, :test do
