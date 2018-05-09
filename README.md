@@ -15,12 +15,23 @@ be your team's devops
 hero!](https://www.honeybadger.io/?utm_source=github&utm_medium=readme&utm_campaign=reck)
 :zap:
 
-# Why another framework?
+## Why another framework?
 
-Reck is very light-weight compared to other web frameworks such as Rails
-and Sinatra. We handle the routing layer using a very simple
-exception-based DSL and then get out of the way so that you can use your
-preferred model, view, and controller components.
+Reck is very light-weight compared to other Ruby web frameworks such as Rails
+and Sinatra. We handle *only* the routing and middleware layers using Ruby's
+built-in exception system to `raise` requests to the client. Flow control in
+Ruby has never been easier.
+
+### Seriously?
+
+No, lol. Reck is a joke. It's an example of what *not* to do. Using exceptions
+for flow control is bad for a number of reasons:
+
+- It makes your code more difficult to read and understand
+- There are better alternatives (such as `catch`/`throw`)
+- It makes Ruby slower
+
+With the disclaimers out of the way, let's make some bad decisions!
 
 ## Installation
 
@@ -33,8 +44,7 @@ $ gem install reck
 To respond to the defined route with rendered content, simply raise an
 exception. The message of the exception will be evaluated as ERB before
 being added to the response. If the exception is raised without a message,
-a no-content response will be sent. This exception-based DSL is great for
-controlling the flow of your application.
+a no-content response will be sent.
 
 Routing is as simple as:
 
@@ -128,12 +138,6 @@ Don't forget to replace `'your_api_key'` with the API key from your [project
 settings
 page](https://www.honeybadger.io/?utm_source=github&utm_medium=readme&utm_campaign=reck)
 in Honeybadger.
-
-## TODO
-
-- [ ] Handle all HTTP 1.1 status codes
-- [ ] Access to response headers
-- [ ] Custom response formats
 
 ## Contributing
 
